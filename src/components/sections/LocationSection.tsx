@@ -112,7 +112,7 @@ const LocationSection = () => {
             <Button
               onClick={handleCTA}
               size="lg"
-              className="gradient-gold text-white hover:opacity-90 transition-all duration-300 h-14 px-8 text-lg font-semibold group"
+              className="gradient-gold text-white h-16 px-10 text-lg font-semibold group rounded-xl animate-pulse-glow"
             >
               Eu quero ter minha casa própria
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -1,4 +1,6 @@
 import { Home, Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react";
+import logoSquare from "@/assets/images/logo_square.png";
+import logoBuilt from "@/assets/images/logo_builtimoveis.png";
 
 const Footer = () => {
   return (
@@ -8,11 +10,18 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="space-y-4 text-center">
-            <img
-              src="https://squarecarapicuiba.com.br/wp-content/uploads/2022/03/SQUARE_CARAPICUIBA_LOGO.png"
-              alt="Square Carapicuíba"
-              className="h-20 w-auto mx-auto"
-            />
+            <div className="flex items-center justify-center gap-16">
+              <img
+                src={logoSquare}
+                alt="Square Carapicuíba"
+                className="h-24 w-auto"
+              />
+              <img
+                src={logoBuilt}
+                alt="Built"
+                className="h-24 w-auto"
+              />
+            </div>
 
             <p className="text-white/80 text-sm leading-relaxed">
               Onde o melhor da vida acontece. Seja para construir sua história 
@@ -91,13 +100,13 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
+          <div className="flex flex-col md:flex-center justify-between items-center gap-4 text-sm text-white/60">
             <p>
               © 2025 Square Carapicuíba. Todos os direitos reservados.
             </p>
-            <p>
+            {/* <p>
               Square Carapicuíba – Onde o melhor da vida acontece
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Key, Phone, ArrowRight } from "lucide-react";
+import { Home, Key, Phone, KeyRound, ShoppingBag, ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -63,7 +63,6 @@ const CTASection = () => {
             }`}
           >
             <p className="text-lg text-foreground flex items-center justify-center gap-2">
-              {/* <span className="text-2xl">👉</span> */}
               <span>Clique abaixo para falar com um consultor e garantir a sua unidade!</span>
             </p>
           </div>
@@ -79,17 +78,18 @@ const CTASection = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white h-16 px-10 text-lg font-semibold group rounded-xl"
             >
-              <Key className="mr-3 w-6 h-6" />
+              <KeyRound className="mr-3 w-6 h-6" />
               Alugar
               <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
+
+            {/* Comprar */}
             <Button
               onClick={handleCTA}
               size="lg"
               className="gradient-gold text-white h-16 px-10 text-lg font-semibold group rounded-xl animate-pulse-glow"
             >
-              <Home className="mr-3 w-6 h-6" />
+              <ShoppingBag className="mr-3 w-6 h-6" />
               Comprar
               <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>

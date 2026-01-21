@@ -1,33 +1,67 @@
 import { useEffect, useRef, useState } from "react";
 import { Bed, Bath, Square, Maximize2 } from "lucide-react";
+import imov1 from "@/assets/images/imov-1.jpeg";
+import imov2 from "@/assets/images/imov-2.jpeg";
+import imov3 from "@/assets/images/imov-3.jpeg";
+
+import g1 from "@/assets/images/gallery/1.jpg";
+import g2 from "@/assets/images/gallery/2.jpg";
+import g3 from "@/assets/images/gallery/3.jpg";
+import g4 from "@/assets/images/gallery/4.jpg";
+import g5 from "@/assets/images/gallery/5.jpg";
+import g6 from "@/assets/images/gallery/6.jpg";
+import g7 from "@/assets/images/gallery/7.jpg";
+import g8 from "@/assets/images/gallery/8.jpg";
+import g9 from "@/assets/images/gallery/9.jpg";
+import g10 from "@/assets/images/gallery/10.jpg";
+import g11 from "@/assets/images/gallery/11.jpg";
+import g12 from "@/assets/images/gallery/12.jpg";
+import g13 from "@/assets/images/gallery/13.jpg";
+import g14 from "@/assets/images/gallery/14.jpg";
+import g15 from "@/assets/images/gallery/15.jpg";
+import g16 from "@/assets/images/gallery/16.jpg";
+import g17 from "@/assets/images/gallery/17.jpg";
+import g18 from "@/assets/images/gallery/18.jpg";
+import g19 from "@/assets/images/gallery/19.jpg";
+import g20 from "@/assets/images/gallery/20.jpg";
+import g21 from "@/assets/images/gallery/21.jpg";
+import g22 from "@/assets/images/gallery/22.jpg";
+import g23 from "@/assets/images/gallery/23.jpg";
+
+const galleryImages = [
+  g1, g2, g3, g4, g5, g6, g7, g8, g9, 
+  g10, g11, g12, g13, g14, g15, g16, 
+  g17, g18, g19, g20, g21, g22, g23
+];
+
 
 const floorPlans = [
   {
     id: 1,
-    size: "60 m²",
-    rooms: "2 dormitórios",
-    description: "2 dormitórios com suíte",
-    features: ["2 Quartos", "1 Suíte", "1 Banheiro", "Sala integrada"],
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlight: false,
+    size: "66 m²",
+    rooms: "3 dormitórios",
+    description: "3 dormitórios, 2 suítes",
+    features: ["3 Quartos", "2 Suíte", "2 Banheiros", "Final 1-4-5-8"],
+    image: imov2,
+    highlight: true,
   },
   {
     id: 2,
-    size: "66 m²",
-    rooms: "3 dormitórios",
-    description: "3 dormitórios com suíte e varanda",
-    features: ["3 Quartos", "1 Suíte", "2 Banheiros", "Varanda Gourmet"],
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlight: true,
+    size: "60 m²",
+    rooms: "2 dormitórios",
+    description: "2 dormitórios, suíte e varanda",
+    features: ["2 Quartos", "1 Suíte", "2 Banheiros", "Final 2-3-6-7"],
+    image: imov1,
+    highlight: false,
   },
   {
     id: 3,
-    size: "62 m²",
-    rooms: "2 dormitórios",
-    description: "2 dormitórios com suíte e closet",
-    features: ["2 Quartos", "1 Suíte", "2 Banheiros", "Closet Exclusivo"],
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlight: true,
+    size: "66 m²",
+    rooms: "3 dormitórios",
+    description: "3 dormitórios, 2 suítes e sala ampliada",
+    features: ["2 Quartos", "1 Suíte", "2 Banheiros", "Final 1-4-5-8"],
+    image: imov3,
+    highlight: false,
   },
 ];
 
@@ -35,6 +69,17 @@ const FloorPlansSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [openImage, setOpenImage] = useState<string | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    if (!carouselRef.current) return;
+
+    const scrollAmount = 240 + 24; // largura + gap
+    carouselRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -131,7 +176,7 @@ const FloorPlansSection = () => {
                 {/* Badge */}
                 {plan.highlight && (
                   <div className="absolute top-4 right-4 z-10 bg-gold text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Mais vendido
+                    Em Destaque
                   </div>
                 )}
 
@@ -190,6 +235,76 @@ const FloorPlansSection = () => {
             );
           })}
         </div>
+
+        {/* Gallery Section */}
+        <div className="mt-24">
+          <div
+            className={`text-center max-w-2xl mx-auto mb-20 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span className="text-gold font-semibold uppercase tracking-wider text-sm">
+              Conheça melhor o nosso espaço
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+              Confira cada detalhe<br />
+              <span className="text-primary">do nosso espaço</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Ambientes pensados para oferecer conforto, <br />funcionalidade e qualidade de vida em cada detalhe.
+            </p>
+          </div>
+
+          <div className="relative max-w-6xl mx-auto">
+            {/* Botão esquerdo */}
+            <button
+              onClick={() => scrollCarousel("left")}
+              className="absolute -left-6 top-1/2 -translate-y-1/2 z-10
+                        w-12 h-12 rounded-full bg-white shadow-lg
+                        flex items-center justify-center
+                        hover:bg-primary hover:text-white transition"
+            >
+              ‹
+            </button>
+
+            {/* Carousel */}
+            <div
+              ref={carouselRef}
+              className="flex gap-6 overflow-hidden px-4"
+            >
+              {galleryImages.map((img, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => setOpenImage(img)}
+                  className="flex-shrink-0 w-[240px] h-[150px]
+                            rounded-xl overflow-hidden shadow-lg
+                            cursor-pointer group"
+                >
+                  <img
+                    src={img}
+                    alt={`Galeria ${idx + 1}`}
+                    className="w-full h-full object-cover
+                              group-hover:scale-110
+                              transition-transform duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Botão direito */}
+            <button
+              onClick={() => scrollCarousel("right")}
+              className="absolute -right-6 top-1/2 -translate-y-1/2 z-10
+                        w-12 h-12 rounded-full bg-white shadow-lg
+                        flex items-center justify-center
+                        hover:bg-primary hover:text-white transition"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+
       </div>
     </section>
   );

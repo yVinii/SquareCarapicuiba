@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Home, Phone, Mail, User } from "lucide-react";
+import imgBackground from "@/assets/images/background-hero.png";
+import imgBackground2 from "@/assets/images/gallery/22.jpg";
+import logoSquare from "@/assets/images/logo_square.png";
 
 const HeroSection = () => {
   const [formData, setFormData] = useState({
@@ -24,10 +27,10 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `url(${imgBackground2})`,
         }}
       />
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 gradient-hero" />
       
@@ -36,10 +39,11 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-white space-y-6 opacity-0 animate-fade-in-left" style={{ animationDelay: "0.2s" }}>
-            <div className="flex items-center gap-2 text-gold">
-              <Home className="w-6 h-6" />
-              <span className="text-sm font-medium uppercase tracking-wider">Square Carapicuíba</span>
-            </div>
+            <img
+              src={logoSquare}
+              alt="Square Carapicuíba"
+              className="h-44 w-auto mx-left"
+            />
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
               Bem-vindo ao Seu Novo Estilo de Vida em{" "}

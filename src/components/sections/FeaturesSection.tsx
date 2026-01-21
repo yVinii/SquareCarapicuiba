@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Home, Maximize, Sofa, Sun, CheckCircle2 } from "lucide-react";
+import imgFeatures from "@/assets/images/img-features.jpg";
 
 const features = [
   {
@@ -53,7 +54,7 @@ const FeaturesSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+                src={imgFeatures}
                 alt="Interior moderno de apartamento"
                 className="
                   w-full object-cover
